@@ -1,5 +1,5 @@
 ## Global Variabel
-@BaseUrl = https://pam-2026-p4-ifs18005-be.delcom.org:8080
+@BaseUrl = https://pam-2026-p4-ifs23008-be.delcom.org:8080
 #@BaseUrl = http://127.0.0.1:8000
 
 ## Profile
@@ -37,11 +37,12 @@ Content-Type: multipart/form-data; boundary=WebAppBoundary
 --WebAppBoundary
 Content-Disposition: form-data; name="nama"
 
-Kangkung
+Jawainses
 --WebAppBoundary
 Content-Disposition: form-data; name="deskripsi"
 
-Brokoli adalah sayuran hijau yang kaya vitamin, mineral, dan serat
+EL setel
+
 --WebAppBoundary
 Content-Disposition: form-data; name="manfaat"
 

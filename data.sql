@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS plants (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+                                      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     nama VARCHAR(100) NOT NULL,
     path_gambar VARCHAR(255) NOT NULL,
     deskripsi TEXT NOT NULL,
@@ -7,4 +7,15 @@ CREATE TABLE IF NOT EXISTS plants (
     efek_samping TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL,
     updated_at TIMESTAMP NOT NULL
-);
+    );
+
+CREATE TABLE IF NOT EXISTS pigs (
+                                    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    nama VARCHAR(100) NOT NULL,
+    path_gambar VARCHAR(255) NOT NULL,
+    asal_perkembangan TEXT NOT NULL,
+    ciri_ciri TEXT NOT NULL,
+    keunggulan TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL
+    );
