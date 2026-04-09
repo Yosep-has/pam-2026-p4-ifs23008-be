@@ -1,10 +1,10 @@
 package org.delcom.module
 
-import org.delcom.repositories.IPigRepository
+import org.delcom.repositories.IFarmRepository
 import org.delcom.repositories.IPlantRepository
-import org.delcom.repositories.PigRepository
+import org.delcom.repositories.FarmRepository
 import org.delcom.repositories.PlantRepository
-import org.delcom.services.PigService
+import org.delcom.services.FarmService
 import org.delcom.services.PlantService
 import org.delcom.services.ProfileService
 import org.koin.dsl.module
@@ -21,14 +21,14 @@ val appModule = module {
         PlantService(get())
     }
 
-    // Pig Repository
-    single<IPigRepository> {
-        PigRepository()
+    // Farm Repository
+    single<IFarmRepository> {
+        FarmRepository()
     }
 
-    // Pig Service
+    // Farm Service
     single {
-        PigService(get())
+        FarmService(get())
     }
 
     // Profile Service

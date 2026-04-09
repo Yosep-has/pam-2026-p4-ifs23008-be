@@ -8,14 +8,14 @@ import io.ktor.server.routing.*
 import org.delcom.data.AppException
 import org.delcom.data.ErrorResponse
 import org.delcom.helpers.parseMessageToMap
-import org.delcom.services.PigService
+import org.delcom.services.FarmService
 import org.delcom.services.PlantService
 import org.delcom.services.ProfileService
 import org.koin.ktor.ext.inject
 
 fun Application.configureRouting() {
     val plantService: PlantService by inject()
-    val pigService: PigService by inject()
+    val farmService: FarmService by inject()
     val profileService: ProfileService by inject()
 
     install(StatusPages) {
@@ -74,25 +74,25 @@ fun Application.configureRouting() {
             }
         }
 
-        // Route Pigs
-        route("/pigs") {
+        // Route Farms
+        route("/farms") {
             get {
-                pigService.getAllPigs(call)
+                farmService.getAllFarms(call)
             }
             post {
-                pigService.createPig(call)
+                farmService.createFarm(call)
             }
             get("/{id}") {
-                pigService.getPigById(call)
+                farmService.getFarmById(call)
             }
             put("/{id}") {
-                pigService.updatePig(call)
+                farmService.updateFarm(call)
             }
             delete("/{id}") {
-                pigService.deletePig(call)
+                farmService.deleteFarm(call)
             }
             get("/{id}/image") {
-                pigService.getPigImage(call)
+                farmService.getFarmImage(call)
             }
         }
 

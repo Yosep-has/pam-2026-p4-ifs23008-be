@@ -1,9 +1,9 @@
 package org.delcom.helpers
 
 import kotlinx.coroutines.Dispatchers
-import org.delcom.dao.PigDAO
+import org.delcom.dao.FarmDAO
 import org.delcom.dao.PlantDAO
-import org.delcom.entities.Pig
+import org.delcom.entities.Farm
 import org.delcom.entities.Plant
 import org.jetbrains.exposed.sql.Transaction
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
@@ -23,14 +23,14 @@ fun daoToModel(dao: PlantDAO) = Plant(
     updatedAt = dao.updatedAt
 )
 
-// Fungsi untuk mengonversi dari PigDAO ke Pig Model
-fun daoToModel(dao: PigDAO) = Pig(
+// Fungsi untuk mengonversi dari FarmDAO ke Farm Model
+fun daoToModel(dao: FarmDAO) = Farm(
     id = dao.id.value.toString(),
     nama = dao.nama,
     pathGambar = dao.pathGambar,
-    asalPerkembangan = dao.asalPerkembangan,
-    ciriCiri = dao.ciriCiri,
-    keunggulan = dao.keunggulan,
+    deskripsi = dao.deskripsi,
+    jumlah = dao.jumlah,
+    pakan = dao.pakan,
     createdAt = dao.createdAt,
     updatedAt = dao.updatedAt
 )

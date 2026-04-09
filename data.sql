@@ -9,13 +9,13 @@ CREATE TABLE IF NOT EXISTS plants (
     updated_at TIMESTAMP NOT NULL
     );
 
-CREATE TABLE IF NOT EXISTS pigs (
+CREATE TABLE IF NOT EXISTS farm (
                                     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     nama VARCHAR(100) NOT NULL,
     path_gambar VARCHAR(255) NOT NULL,
-    asal_perkembangan TEXT NOT NULL,
-    ciri_ciri TEXT NOT NULL,
-    keunggulan TEXT NOT NULL,
+    "Deskripsi" TEXT NOT NULL,
+    "Populasi" INTEGER NOT NULL,
+    "Pakan" TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL,
     updated_at TIMESTAMP NOT NULL
     );

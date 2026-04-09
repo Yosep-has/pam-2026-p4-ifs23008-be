@@ -1,5 +1,5 @@
 ## Global Variabel
-@BaseUrl = https://pam-2026-p4-ifs23008-be.delcom.org:8080
+@BaseUrl = https://pam-2026-p4-ifs23008-be.yosep.fun:8080
 #@BaseUrl = http://127.0.0.1:8000
 
 ## Profile
@@ -127,4 +127,117 @@ Content-Type: image/png
 ### Menghapus data plant berdasarkan id-nya
 # @name DeletePlant
 DELETE {{BaseUrl}}/plants/{{plantId}}
+Content-Type: application/json
+
+
+## Pigs
+## ===========================================
+
+### Mengambil semua data babi
+# @name GetAllPigs
+GET {{BaseUrl}}/pigs?search=
+Content-Type: application/json
+
+#> {%
+#    client.global.set("pigId", response.body.data.pigs[0].id);
+#    console.log(client.global.get("pigId"))
+#%}
+
+### Menambahkan data babi baru
+# @name PostPig
+POST {{BaseUrl}}/pigs
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="nama"
+
+Babi Landrace
+--WebAppBoundary
+Content-Disposition: form-data; name="asalPerkembangan"
+
+Babi Landrace berasal dari Denmark dan dikembangkan sejak abad ke-19 sebagai ras unggul penghasil daging.
+--WebAppBoundary
+Content-Disposition: form-data; name="ciriCiri"
+
+Tubuh panjang, telinga terkulai ke depan, kulit putih bersih, dan punggung yang lebar.
+--WebAppBoundary
+Content-Disposition: form-data; name="keunggulan"
+
+Pertumbuhan cepat, efisiensi pakan tinggi, dan kualitas karkas yang baik.
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="example.png"
+Content-Type: image/png
+
+< ./example.png
+--WebAppBoundary--
+
+> {%
+    client.global.set("pigId", response.body.data.pigId);
+    console.log(client.global.get("pigId"))
+%}
+
+### Mengambil data babi berdasarkan id-nya
+# @name GetPigById
+GET {{BaseUrl}}/pigs/{{pigId}}
+Content-Type: application/json
+
+### Melihat gambar babi
+# @name GetPigImageById
+GET {{BaseUrl}}/pigs/{{pigId}}/image
+Content-Type: application/json
+
+### Mengubah hanya data babi berdasarkan id-nya (tanpa gambar)
+# @name PutPigOnlyData
+PUT {{BaseUrl}}/pigs/{{pigId}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="nama"
+
+Babi Landrace Update
+--WebAppBoundary
+Content-Disposition: form-data; name="asalPerkembangan"
+
+Babi Landrace berasal dari Denmark dan dikembangkan sejak abad ke-19 sebagai ras unggul penghasil daging.
+--WebAppBoundary
+Content-Disposition: form-data; name="ciriCiri"
+
+Tubuh panjang, telinga terkulai ke depan, kulit putih bersih, dan punggung yang lebar.
+--WebAppBoundary
+Content-Disposition: form-data; name="keunggulan"
+
+Pertumbuhan cepat, efisiensi pakan tinggi, dan kualitas karkas yang baik.
+--WebAppBoundary--
+
+### Mengubah gambar dan data babi berdasarkan id-nya
+# @name PutPig
+PUT {{BaseUrl}}/pigs/{{pigId}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="nama"
+
+Babi Landrace
+--WebAppBoundary
+Content-Disposition: form-data; name="asalPerkembangan"
+
+Babi Landrace berasal dari Denmark dan dikembangkan sejak abad ke-19 sebagai ras unggul penghasil daging.
+--WebAppBoundary
+Content-Disposition: form-data; name="ciriCiri"
+
+Tubuh panjang, telinga terkulai ke depan, kulit putih bersih, dan punggung yang lebar.
+--WebAppBoundary
+Content-Disposition: form-data; name="keunggulan"
+
+Pertumbuhan cepat, efisiensi pakan tinggi, dan kualitas karkas yang baik.
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="example.png"
+Content-Type: image/png
+
+< ./example.png
+--WebAppBoundary--
+
+### Menghapus data babi berdasarkan id-nya
+# @name DeletePig
+DELETE {{BaseUrl}}/pigs/{{pigId}}
 Content-Type: application/json
